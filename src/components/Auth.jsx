@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { account } from "../helper/appwrite";
 
 const Auth = ({
@@ -16,13 +16,7 @@ const Auth = ({
   setPassword,
   setName,
 }) => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const user = account.get();
-    user.then(() => {
-      navigate("/");
-    });
-  }, [navigate]);
+  
   return (
     <div className="hero min-h-screen bg-[#F7F6F6] pt-0 justify-center ">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10  mb-auto mt-10">
