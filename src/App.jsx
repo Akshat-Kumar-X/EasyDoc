@@ -3,10 +3,9 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Diagnosis from './pages/Diagnosis'
 import Appointment from './pages/Appointment'
-import About from './pages/About'
-import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Doctor from './pages/Doctor'
 
 const App = () => {
   return (
@@ -16,8 +15,7 @@ const App = () => {
           <Route path='/'             element={ <Home/> } />
           <Route path='/diagnosis'    element={ <Diagnosis/> } />
           <Route path='/appointment'  element={ <Appointment/> } />
-          <Route path='/about'        element={ <About/> } />
-          <Route path='/contact'      element={ <Contact/> } />
+          <Route path='/doctor'       element={ <Doctor/> } />
           <Route path='/login'        element={ <Login/> } />
           <Route path='/signup'       element={ <Signup/> } />
       </Routes>
