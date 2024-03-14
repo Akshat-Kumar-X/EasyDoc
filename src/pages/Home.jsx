@@ -12,7 +12,7 @@ const Home = () => {
         <div className='flex flex-col md:flex-row justify-around items-center w-full'>
 
             <div className='hidden md:flex flex-col  hover:scale-110 duration-300'>
-                <Link to="/appointment">
+                <Link to="/doctor">
                     <img src="/assets/images/heroDoctor.png" alt="Doctor" className='h-20 w-20' />
                     <p className='flex flex-col gap-0 justify-center items-center text-sm font-medium'>Choose your <span className='flex justify-center ps-5 relative bottom-[5px] left-2'>doctor</span></p>
                 </Link>

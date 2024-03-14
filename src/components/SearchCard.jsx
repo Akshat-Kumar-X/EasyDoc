@@ -1,6 +1,6 @@
-import React from 'react';
+import { IoLocationSharp } from "react-icons/io5";
 
-const SearchCard = ({ name, occupation, experience, email, imageUrl }) => {
+const SearchCard = ({ name, occupation, district, experience, email, imageUrl }) => {
   return (
 <div className="dark:bg-slate-800 gap-2 flex items-center justify-center">
       <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden  group rounded-xl p-10 transition-all duration-500 transform">
@@ -13,6 +13,7 @@ const SearchCard = ({ name, occupation, experience, email, imageUrl }) => {
           <div className="w-fit transition-all transform duration-500">
             <h1 className="text-gray-600 dark:text-gray-200 font-bold">{name}</h1>
             <p className="text-gray-400">{occupation}</p>
+            <p className='text-gray-400 flex flex-row justify-start items-center'><IoLocationSharp /> {district}</p>
             <p className="text-gray-400">
               Experience <span className="text-xl font-bold">{experience}</span>
             </p>
