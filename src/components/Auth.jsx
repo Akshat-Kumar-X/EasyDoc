@@ -24,8 +24,8 @@ const Auth = ({
     });
   }, [navigate]);
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero min-h-screen bg-[#F7F6F6] pt-0 justify-center ">
+      <div className="hero-content flex-col lg:flex-row-reverse gap-10  mb-auto mt-10">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">{title}</h1>
           <p className="py-6">{description}</p>
@@ -65,13 +65,13 @@ const Auth = ({
               <input
                 type="Password"
                 placeholder="Create a Strong password"
-                className="input input-bordered"
+                className="input input-bordered mb-5"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             {button}
-            <span className="text-center">
+            <span className="text-center mt-5">
               <p>{bottomquestion}</p>
               <Link to={bottomlink} className="link">
                 {bottomtext}
