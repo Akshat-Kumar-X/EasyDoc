@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="flex justify-center items-center gap-4">
         <Link to="/">
           <div className="border-[1.5px] border-gray-300  px-4 py-[2px] rounded-full hover:scale-110 hover:shadow-sm duration-300">
-            menu
+            Menu
           </div>
         </Link>
         <div className=" items-center hover:scale-110 duration-300 hidden sm:flex">
@@ -27,21 +27,21 @@ const Navbar = () => {
         
         <ul className="flex gap-6">
           <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/diagnosis"> diagnosis </Link>
+            <Link to="/diagnosis"> Diagnosis </Link>
           </li>
           
           <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/about"> about </Link>
+            <Link to="/about"> About </Link>
           </li>
            
           <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/contact"> contact </Link>
+            <Link to="/contact"> Contact </Link>
           </li>
 
           <li>
             <Link to="/login">
               <div className="flex gap-1 border-[1.5px] border-gray-300  px-4 py-[2px] rounded-full hover:scale-110 hover:shadow-sm duration-300">
-                <span className="">login</span><span className="text-primary-orange">●</span>
+                <span className="">Login / Sign up</span>
               </div>
             </Link>
           </li>
