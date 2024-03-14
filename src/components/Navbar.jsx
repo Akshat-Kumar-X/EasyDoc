@@ -15,26 +15,12 @@ const Navbar = () => {
 
       <div className="hidden sm:flex gap-6">
         <ul className="flex gap-6">
-<<<<<<< HEAD
           {isSignedIn ? <li>
             <Link to="/add-blog">Add Blog</Link>
           </li> : null}
         <li className="flex items-center hover:scale-110 duration-300">
           <Link to="/diagnosis"> Diagnosis </Link>
         </li>
-=======
-          <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/diagnosis"> Diagnosis </Link>
-          </li>
-          
-          <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/doctor"> Doctors </Link>
-          </li>
-           
-          <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/blog"> Blogs </Link>
-          </li>
->>>>>>> 66dc40e6eddab4788d540675852faa65c95a1988
 
         <li className="flex items-center hover:scale-110 duration-300">
           <Link to="/about"> Doctors </Link>
