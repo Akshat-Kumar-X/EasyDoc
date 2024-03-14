@@ -7,20 +7,25 @@ import About from './pages/About'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Blogs from './pages/Blogs'
+import AddBlog from './pages/AddBlog'
+import AuthProvider from './contexts/auth-provider'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar/>
-      <Routes>
-          <Route path='/'             element={ <Home/> } />
-          <Route path='/diagnosis'    element={ <Diagnosis/> } />
-          <Route path='/appointment'  element={ <Appointment/> } />
-          <Route path='/about'        element={ <About/> } />
-          <Route path='/blog'      element={ <Blogs/> } />
-          <Route path='/login'        element={ <Login/> } />
-          <Route path='/signup'       element={ <Signup/> } />
-      </Routes>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/add-blog' element={<AddBlog />} />
+          <Route path='/diagnosis' element={<Diagnosis />} />
+          <Route path='/appointment' element={<Appointment />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/blog' element={<Blogs />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Auth from "../components/Auth";
 import { account } from "../helper/appwrite";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../contexts/auth-provider";
 
 const Loginbtn = ({ onClick }) => {
   return (
@@ -15,16 +16,26 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {isSignedIn, setIsSignedIn, setUser} = useAuth();
   const loginAccount = async () => {
-    const promise = account.createEmailSession(email, password);
+    const promise = account.createEmailPasswordSession(email, password);
     promise
-      .then((response) => {
+      .then(async (response) => {
+        setIsSignedIn(true);
+        const user = await account.get();
+        setUser(user);
+        localStorage["user"] = JSON.stringify(user);
         navigate("/");
       })
       .catch((err) => {
         alert(err);
       });
   };
+
+  if(isSignedIn) {
+    navigate('/')
+  }
+
   return (
     <Auth
       title={"Login now"}
