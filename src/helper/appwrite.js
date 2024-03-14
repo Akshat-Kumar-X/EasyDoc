@@ -8,4 +8,16 @@ client
 
 const account = new Account(client);
 
-export { account, client};
+const getCurrentUser = async () => {
+    const promise = account.get();
+    const result = promise
+        .then((user) => {
+            return user;
+        })
+        .catch(() => {
+            return null;
+        });
+    return result;
+};
+
+export { account, client , getCurrentUser};
