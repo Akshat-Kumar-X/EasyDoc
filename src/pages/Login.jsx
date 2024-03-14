@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Loginbtn = ({ onClick }) => {
   return (
-    <button onClick={onClick} className="btn btn-primary">
+    <button onClick={onClick} className="btn btn-primary bg-blue-400 text-white border-none hover:bg-blue-500">
       Login now
     </button>
   );

@@ -1,8 +1,11 @@
 import React from 'react'
+import SearchCard from '../components/SearchCard'
 
 const About = () => {
   return (
-    <div>About</div>
+    <>
+    <SearchCard />
+    </>
   )
 }
 

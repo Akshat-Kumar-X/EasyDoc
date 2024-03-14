@@ -31,11 +31,11 @@ const Navbar = () => {
           </li>
           
           <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/about"> About </Link>
+            <Link to="/about"> Doctors </Link>
           </li>
            
           <li className="flex items-center hover:scale-110 duration-300">
-            <Link to="/contact"> Contact </Link>
+            <Link to="/contact"> Blogs </Link>
           </li>
 
           <li>

@@ -5,7 +5,7 @@ import { ID } from 'appwrite'
 import { useNavigate } from 'react-router-dom'
 
 const Signupbtn = ({onClick}) => {
-    return <button onClick={onClick} className="btn btn-primary">SignUp</button>
+    return <button onClick={onClick} className="btn btn-primary  bg-blue-400 text-white border-none hover:bg-blue-500">SignUp</button>
 };
 
 const Signup = () => {

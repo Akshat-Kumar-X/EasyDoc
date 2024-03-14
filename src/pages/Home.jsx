@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { BsArrowUpRightCircle } from "react-icons/bs";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Home = () => {
   return (
@@ -39,8 +40,8 @@ const Home = () => {
             </div>
         </div>
         
-        <div className="flex flex-row justify-center items-center w-full gap-3 mt-2">
-            <div className="flex flex-col justify-center items-center gap-3">
+        <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 mt-2">
+            <div className="flex flex-row md:flex-col justify-center items-center gap-3">
                 <div className="card flex flex-col justify-center items-center rounded-xl bg-primary-teal p-2 text-sm px-4 hover:scale-105 duration-300">
                     <div className=" flex flex-row">
                         <div className="flex flex-row items-center justify-start gap-1">
@@ -48,7 +49,7 @@ const Home = () => {
                             <div className="border-[1.5px] border-gray-300 rounded-full px-[10px]">i</div>
                         </div>
                     </div>
-                    <div className="py-1    ">
+                    <div className="py-1">
                         <div className="radial-progress text-dark-teal" style={{ "--value": "80", "--size": "6rem", "--thickness": "2.5px" }} role="progressbar">
                             <span className="text-2xl text-black ps-1">80%</span>
                         </div>
@@ -75,41 +76,66 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="flex flex-row text-gray-500">
-                <FaArrowAltCircleLeft />
-                <FaArrowAltCircleRight />
+            <div className="flex flex-row text-white gap-3 mb-auto me-6">
+                <div className="bg-gray-300 rounded-full p-1 hover:rotate-45 duration-300">
+                    <BsArrowLeft className="font-bold"/>
+                </div>
+                <div className="bg-gray-200 rounded-full p-1 hover:-rotate-45 duration-300">
+                    <BsArrowRight className="font-bold"/>
+                </div>
             </div>
 
-            <div className="card flex flex-col justify-between items-start rounded-xl bg-cover bg-center h-[370px] w-[280px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/videoCall.png')" }}>
+            <div className="card flex flex-col justify-between items-start rounded-xl bg-cover bg-center h-[370px] w-[330px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/videoCall.png')" }}>
                 <div className="flex flex-col text-xl">
                                 Virtual <span className="relative bottom-[5px]">Consultation</span>
                 </div>    
                 <BsArrowUpRightCircle className="text-2xl text-white" />
             </div>
-            <div className="card flex flex-col justify-end items-center rounded-xl bg-cover bg-center h-[370px] w-[140px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/mobile.png')" }}>
-                <div className="flex flex-row items-center justify-center gap-1">
-                    <div className="border-[1.5px] border-white rounded-full px-2">Telemedicine</div>
-                    <div className="border-[1.5px] border-white rounded-full px-[10px]">i</div>
-                </div>   
-            </div>
-            <div className="card flex flex-col justify-center items-center rounded-xl bg-white h-[370px] w-[140px] p-2 text-sm px-4 text-white hover:scale-105 duration-300">
-                <div className="flex flex-col  items-start h-full">
-                    <div className="flex flex-col text-black text-2xl mb-auto">
-                        <h1>Telehealth <span className="relative bottom-[10px]">solutions.</span> </h1> 
-                        <div className="p-2 flex items-start justify-start">
-                            <div className="text-white text-[15px] bg-primary-orange rounded-full flex justify-center px-[10px] relative bottom-[10px] right-[10px]">
-                                Explore ⟶
+            <div className="flex flex-row gap-3 md:gap-4">
+                <div className="card flex flex-col justify-end items-center rounded-xl bg-cover bg-center h-[370px] w-[170px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/mobile.png')" }}>
+                    <div className="flex flex-row items-center justify-center gap-1">
+                        <div className="border-[1.5px] border-white rounded-full px-2">Telemedicine</div>
+                        <div className="border-[1.5px] border-white rounded-full px-[10px]">i</div>
+                    </div>   
+                </div>
+                <div className="card flex flex-col justify-center items-center rounded-xl bg-white h-[370px] w-[170px] p-2 text-sm px-4 text-white hover:scale-105 duration-300">
+                    <div className="flex flex-col  items-start h-full">
+                        <div className="flex flex-col text-black text-2xl mb-auto">
+                            <h1>Telehealth <span className="relative bottom-[10px]">solutions.</span> </h1> 
+                            <div className="p-2 flex items-start justify-start">
+                                <div className="text-white text-[15px] bg-primary-orange rounded-full flex justify-center px-[10px] relative bottom-[10px] right-[10px]">
+                                    Explore ⟶
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col justify-center items-start text-black mt-auto">
-                        <div className="border-[1.5px] border-gray-400 rounded-full px-2 mb-2 flex">about</div>
-                        <p className="text-xs ">Our platform<br /> connects you with<br /> trust healthcare.</p>
-                        <p className="text-xs mt-2 text-gray-400 underline">Read more.</p>
-                    </div>
+                        <div className="flex flex-col justify-center items-start text-black mt-auto">
+                            <div className="border-[1.5px] border-gray-400 rounded-full px-2 mb-2 flex">about</div>
+                            <p className="text-xs ">Our platform<br /> connects you with<br /> trust healthcare.</p>
+                            <p className="text-xs mt-2 text-gray-400 underline">Read more.</p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div className="flex flex-row md:flex-col text-gray-700 gap-3 my-auto me-6 ">
+                <div className="border-gray-700 border-[1px] px-2 rounded-full p-1 hover:scale-110 duration-300">
+                    in
                 </div>  
+                <div className="border-gray-700 border-[1px] px-3  rounded-full p-1 hover:scale-110 duration-300 flex justify-center">
+                    f
+                </div>
+                <div className="border-gray-700 border-[1px] px-2  rounded-full p-1 py-2 hover:scale-110 duration-300 flex justify-center">
+                    <FaXTwitter className="text-sm" />
+                </div>
             </div>
 
+        </div>
+    </section>
+
+    <section>
+        <div className="flex flex-row gap-3">
+            <div className="flex flex-col">
+                <div className="border-[1.5px] border-gray-400 rounded-full px-2 mb-2 flex">about</div>
+            </div>
         </div>
     </section>
         
