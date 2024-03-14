@@ -23,7 +23,7 @@ const Navbar = () => {
         </li>
 
         <li className="flex items-center hover:scale-110 duration-300">
-          <Link to="/about"> Doctors </Link>
+          <Link to="/doctor"> Doctors </Link>
         </li>
 
         <li className="flex items-center hover:scale-110 duration-300">
