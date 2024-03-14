@@ -5,6 +5,7 @@ import Diagnosis from './pages/Diagnosis'
 import Appointment from './pages/Appointment'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Login from './pages/Login'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/appointment'  element={ <Appointment /> } />
           <Route path='/about'        element={ <About       /> } />
           <Route path='/contact'      element={ <Contact     /> } />
+          <Route path='/login'        element={ <Login       /> } />
       </Routes>
     </BrowserRouter>
   )

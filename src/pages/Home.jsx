@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { BsArrowUpRightCircle } from "react-icons/bs";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -36,8 +38,8 @@ const Home = () => {
                 
             </div>
         </div>
-
-        <div className="flex flex-row justify-center items-center w-full gap-3">
+        
+        <div className="flex flex-row justify-center items-center w-full gap-3 mt-2">
             <div className="flex flex-col justify-center items-center gap-3">
                 <div className="card flex flex-col justify-center items-center rounded-xl bg-primary-teal p-2 text-sm px-4 hover:scale-105 duration-300">
                     <div className=" flex flex-row">
@@ -72,6 +74,12 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="flex flex-row text-gray-500">
+                <FaArrowAltCircleLeft />
+                <FaArrowAltCircleRight />
+            </div>
+
             <div className="card flex flex-col justify-between items-start rounded-xl bg-cover bg-center h-[370px] w-[280px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/videoCall.png')" }}>
                 <div className="flex flex-col text-xl">
                                 Virtual <span className="relative bottom-[5px]">Consultation</span>
@@ -85,8 +93,8 @@ const Home = () => {
                 </div>   
             </div>
             <div className="card flex flex-col justify-center items-center rounded-xl bg-white h-[370px] w-[140px] p-2 text-sm px-4 text-white hover:scale-105 duration-300">
-                <div className="flex flex-col  items-start">
-                    <div className="flex flex-col text-black text-2xl">
+                <div className="flex flex-col  items-start h-full">
+                    <div className="flex flex-col text-black text-2xl mb-auto">
                         <h1>Telehealth <span className="relative bottom-[10px]">solutions.</span> </h1> 
                         <div className="p-2 flex items-start justify-start">
                             <div className="text-white text-[15px] bg-primary-orange rounded-full flex justify-center px-[10px] relative bottom-[10px] right-[10px]">
@@ -94,9 +102,10 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col text-black">
-                        <div className="border-[1.5px] border-black rounded-full px-2 flex flex-grow">about</div>
-                        <p className="text-xs flex flex-shrink">Our platform<br /> connects you with<br /> trust healthcare.</p>
+                    <div className="flex flex-col justify-center items-start text-black mt-auto">
+                        <div className="border-[1.5px] border-gray-400 rounded-full px-2 mb-2 flex">about</div>
+                        <p className="text-xs ">Our platform<br /> connects you with<br /> trust healthcare.</p>
+                        <p className="text-xs mt-2 text-gray-400 underline">Read more.</p>
                     </div>
                 </div>  
             </div>

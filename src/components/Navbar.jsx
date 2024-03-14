@@ -34,10 +34,14 @@ const Navbar = () => {
             <Link to="/about"> about </Link>
           </li>
            
+          <li className="flex items-center hover:scale-110 duration-300">
+            <Link to="/contact"> contact </Link>
+          </li>
+
           <li>
-            <Link to="/contact">
+            <Link to="/login">
               <div className="flex gap-1 border-[1.5px] border-gray-300  px-4 py-[2px] rounded-full hover:scale-110 hover:shadow-sm duration-300">
-                <span className="">contact</span><span className="text-primary-orange">●</span>
+                <span className="">login</span><span className="text-primary-orange">●</span>
               </div>
             </Link>
           </li>
