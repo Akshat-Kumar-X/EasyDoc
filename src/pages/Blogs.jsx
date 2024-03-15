@@ -36,6 +36,7 @@ const Blogs = () => {
 
   return (
     <div>
+      <div className='text-4xl font-bold text-gray-700 ms-4 mb-3'>Blog </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-2'>
         {blogs.length && blogs.map(blog => (<Blogcard
           imageLink={blog?.image}

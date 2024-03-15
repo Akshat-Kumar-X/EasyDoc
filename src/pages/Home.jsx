@@ -25,7 +25,7 @@ const Home = () => {
             <div className="flex md:flex-col justify-between md:justify-start items-center max-md:w-full py-5">
                 <div className="flex flex-row justify-center items-center gap-2 lg:relative lg:right-48 lg:top-3">
                     <p className="flex flex-col text-sm text-gray-400 mt-2">read <span className=" relative bottom-[7px]">more</span></p>
-                    <Link to="/about">
+                    <Link to="/blog">
                         <BsArrowUpRightCircleFill className="text-5xl text-primary-orange hover:rotate-45 duration-300"/>
                     </Link>
                 </div>
@@ -43,24 +43,27 @@ const Home = () => {
         <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 mt-2">
             <div className="flex flex-row md:flex-col justify-center items-center gap-3">
                 <div className="card flex flex-col justify-center items-center rounded-xl bg-primary-teal p-2 text-sm px-4 hover:scale-105 duration-300">
-                    <div className=" flex flex-row">
-                        <div className="flex flex-row items-center justify-start gap-1">
-                            <div className="border-[1px] border-gray-300 rounded-full px-2">statistics</div>
-                            <div className="border-[1.5px] border-gray-300 rounded-full px-[10px]">i</div>
+                    <Link to="/doctorpage">
+                        <div className=" flex flex-row">
+                            <div className="flex flex-row items-center justify-start gap-1">
+                                <div className="border-[1px] border-gray-300 rounded-full px-2">statistics</div>
+                                <div className="border-[1.5px] border-gray-300 rounded-full px-[10px]">i</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="py-1">
-                        <div className="radial-progress text-dark-teal" style={{ "--value": "80", "--size": "6rem", "--thickness": "2.5px" }} role="progressbar">
-                            <span className="text-2xl text-black ps-1">80%</span>
+                        <div className="py-1">
+                            <div className="radial-progress text-dark-teal" style={{ "--value": "80", "--size": "6rem", "--thickness": "2.5px" }} role="progressbar">
+                                <span className="text-2xl text-black ps-1">80%</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-row items-center justify-between gap-3">
-                        <div className="flex flex-col">
-                            Succesfull <span className="relative bottom-[5px]">diagnoss</span>
-                        </div>    
-                        <BsArrowUpRightCircle className="text-2xl text-gray-700" />
-                    </div>
+                        <div className="flex flex-row items-center justify-between gap-3">
+                            <div className="flex flex-col">
+                                Succesfull <span className="relative bottom-[5px]">diagnoss</span>
+                            </div>    
+                            <BsArrowUpRightCircle className="text-2xl text-gray-700" />
+                        </div>
+                    </Link>
                 </div>
+                <Link to="/blog">
                 <div className="card flex flex-col justify-between items-start rounded-xl bg-cover bg-center h-[174px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/mountains.jpg')" }}>
                     <div className=" flex flex-row">
                         <div className="flex flex-row items-start justify-start gap-1">
@@ -74,6 +77,7 @@ const Home = () => {
                         <BsArrowUpRightCircle className="text-2xl text-white" />
                     </div>
                 </div>
+                </Link>
             </div>
 
             <div className="flex flex-row text-white gap-3 mb-auto me-6">
@@ -84,13 +88,15 @@ const Home = () => {
                     <BsArrowRight className="font-bold"/>
                 </div>
             </div>
-
+            <Link to="/doctorpage">
             <div className="card flex flex-col justify-between items-start rounded-xl bg-cover bg-center h-[370px] w-[330px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/videoCall.png')" }}>
                 <div className="flex flex-col text-xl">
                                 Virtual <span className="relative bottom-[5px]">Consultation</span>
                 </div>    
                 <BsArrowUpRightCircle className="text-2xl text-white" />
             </div>
+            </Link>
+            <Link to="/diagnosis">
             <div className="flex flex-row gap-3 md:gap-4">
                 <div className="card flex flex-col justify-end items-center rounded-xl bg-cover bg-center h-[370px] w-[170px] p-2 text-sm px-4 text-white hover:scale-105 duration-300" style={{ backgroundImage:"url('/assets/images/mobile.png')" }}>
                     <div className="flex flex-row items-center justify-center gap-1">
@@ -116,6 +122,8 @@ const Home = () => {
                     </div>  
                 </div>
             </div>
+            </Link>
+            <Link to="/diagnosis">
             <div className="flex flex-row md:flex-col text-gray-700 gap-3 my-auto me-6 ">
                 <div className="border-gray-700 border-[1px] px-2 rounded-full p-1 hover:scale-110 duration-300">
                     in
@@ -127,17 +135,12 @@ const Home = () => {
                     <FaXTwitter className="text-sm" />
                 </div>
             </div>
+            </Link>
 
         </div>
     </section>
 
-    <section>
-        <div className="flex flex-row gap-3">
-            <div className="flex flex-col">
-                <div className="border-[1.5px] border-gray-400 rounded-full px-2 mb-2 flex">about</div>
-            </div>
-        </div>
-    </section>
+
         
     </>
   )

@@ -20,7 +20,7 @@ const CartPage = () => {
   const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price), 0);
 
   return (
-    <div className="flex flex-col bg-slate-100 p-10 w-[400px]">
+    <div className="flex flex-col bg-slate-100 p-10 w-[400px] shadow-md rounded-lg">
       <h1 className="text-xl font-semibold mb-3">Order Summary</h1>
       <div className="flex flex-row justify-between items-center text-gray-700 font-semibold mb-2">
         <p>Item</p>

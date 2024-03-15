@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="text-xl" id="logo">
         <Link to="/" className='flex justify-center items-center'>
           <img src="/assets/images/stethoscope.png" alt="stethoscope" className='w-10 h-10' />
-          EasyDoc
+           <div><span className='font-bold'>AI</span>med</div>
         </Link>
       </div>
 
@@ -35,7 +35,7 @@ const Navbar = () => {
         </li>
 
         <li className="flex items-center hover:scale-110 duration-300">
-          <Link to="/cart"> <FaShoppingCart size={30} color='red'/></Link>
+          <Link to="/cart"> <FaShoppingCart className='text-xl text-gray-800'/></Link>
         </li>
 
         <li>
