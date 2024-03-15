@@ -16,7 +16,7 @@ const Diagnosis = () => {
 
   return (
     <>
-      <div className='flex flex-col w-full justify-center items-center bg-gradient-to-tr bg-gradient-to-tr from-sky-300 via-sky-400 to-blue-500 bg-white rounded-lg p-10 mx-3 my-4 shadow-md'>
+      <div className='flex flex-col w-full justify-center items-center bg-gradient-to-tr from-sky-300 via-sky-400 to-blue-500 bg-white rounded-lg p-10 mx-3 my-4 shadow-md'>
 
             <h1 className='text-5xl flex flex-col gap-2 mb-8 text-white' >
                 <span>Find the <span className=' ms-1 '>best</span></span>

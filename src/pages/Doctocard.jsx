@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoLocationSharp } from "react-icons/io5";
 
-const Doctorcard = ({imageUrl, name, specialization, location, experience}) => {
+const Doctorcard = ({ imageUrl, name, specialization, location, experience }) => {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [bookedAppointment, setBookedAppointment] = useState(null);
   const [dialogbox, setDialogBox] = useState(true);
@@ -10,16 +10,16 @@ const Doctorcard = ({imageUrl, name, specialization, location, experience}) => {
     setSelectedSlot(slot);
   };
 
-    const handleBookAppointment = (e) => {
-      if (selectedSlot) {
-        e.preventDefault(); 
-        setBookedAppointment(selectedSlot);
-        setDialogBox(false);
-        alert("success");
-        setSelectedSlot(null); // Reset selected slot after booking
-        toast.success("Success Notification !")
-      }
-    };
+  const handleBookAppointment = (e) => {
+    if (selectedSlot) {
+      e.preventDefault();
+      setBookedAppointment(selectedSlot);
+      setDialogBox(false);
+      alert("success");
+      setSelectedSlot(null); // Reset selected slot after booking
+      toast.success("Success Notification !")
+    }
+  };
 
   return (
     <div className="dark:bg-slate-800 gap-2 flex items-center justify-center">
@@ -65,9 +65,9 @@ const Doctorcard = ({imageUrl, name, specialization, location, experience}) => {
           Check Appointment
         </button>
 
-        <dialog 
-          id="loginDialog" 
-          className={`z-50 absolute inset-0 rounded-lg w-full max-w-lg ${dialogbox ? '' : 'hidden'}`} 
+        <dialog
+          id="loginDialog"
+          className={`z-50 absolute inset-0 rounded-lg w-full max-w-lg ${dialogbox ? '' : 'hidden'}`}
           style={{ backdropFilter: 'blur(100px)' }}
         >          <form id="loginForm" className="card flex-shrink-0 w-full">
             <div className="card-body">

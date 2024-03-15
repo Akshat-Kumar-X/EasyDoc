@@ -11,6 +11,7 @@ import Doctor from './pages/Doctor'
 import Doctordetail from './pages/Doctordetail'
 import Doctorcard from './pages/Doctocard'
 import Doctorpage from './pages/Doctorpage'
+import Cartpage from './pages/Cartpage'
 
 const App = () => {
   return (
@@ -20,12 +21,13 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/add-blog' element={<AddBlog />} />
+          <Route path='/cart' element={<Cartpage />} />
           <Route path='/doctorcard' element={<Doctorcard />} />
           <Route path='/doctordetail' element={<Doctordetail/>} />
           <Route path='/doctorpage' element={<Doctorpage/>} />
           <Route path='/diagnosis' element={<Diagnosis />} />
           <Route path='/blog' element={<Blogs />} />
-          <Route path='/doctor'       element={ <Doctor/> } />
+          <Route path='/doctor' element={<Doctor/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>

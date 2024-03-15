@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from "../contexts/auth-provider";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const { isSignedIn, user, logout } = useAuth();
@@ -31,6 +32,10 @@ const Navbar = () => {
 
         <li className="flex items-center hover:scale-110 duration-300">
           <Link to="/blog"> Blogs </Link>
+        </li>
+
+        <li className="flex items-center hover:scale-110 duration-300">
+          <Link to="/cart"> <FaShoppingCart size={30} color='red'/></Link>
         </li>
 
         <li>
