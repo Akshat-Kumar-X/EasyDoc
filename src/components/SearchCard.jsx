@@ -24,7 +24,7 @@ const SearchCard = ({ name, occupation, district, experience, email, imageUrl })
 
   return (
     <div className="dark:bg-slate-800 gap-2 flex items-center justify-center">
-      <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden  group rounded-xl p-10 transition-all duration-500 transform">
+      <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden  group rounded-xl p-5 transition-all duration-500 transform">
         <div className="flex items-center gap-4">
           <img
             src={imageUrl}
@@ -63,7 +63,7 @@ const SearchCard = ({ name, occupation, district, experience, email, imageUrl })
           </div>
         </div>
         <button
-          className="inline-block px-4 font-bold py-2 rounded-lg text-white transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 to-green-500 hover:from-blue-600 hover:to-green-600"
+          className="inline-block px-4 font-semibold py-1.5 rounded-lg mt-2 text-white transition-all duration-300 ease-in-out bg-gradient-to-r from-blue-400 to-green-500 hover:from-blue-600 hover:to-green-600 "
           onClick={() => document.getElementById('loginDialog').showModal()}
         >
           Check Appointment
@@ -87,7 +87,7 @@ const SearchCard = ({ name, occupation, district, experience, email, imageUrl })
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {['01:00PM', '02:00PM', '03:00PM', '04:00PM', '05:00PM', '06:00PM'].map((slot, index) => (
-                    <label key={index} className={`btn ${selectedSlot === slot ? 'bg-blue-600' : ''}`}>
+                    <label key={index} className={`btn ${selectedSlot === slot ? 'bg-blue-400' : ''}`}>
                       <input
                         type="checkbox"
                         className="hidden"
@@ -107,7 +107,7 @@ const SearchCard = ({ name, occupation, district, experience, email, imageUrl })
           </form>
         </dialog>
 
-        <p>Booked: {bookedAppointment}</p>
+        <p className='text-md text-gray-600'>Booked: {bookedAppointment}</p>
       </div>
     </div>
   );
