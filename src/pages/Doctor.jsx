@@ -3,7 +3,6 @@ import SearchResults from '../components/SearchResults';
 import searchData from '../../public/data.js';
 import { IoLocationSharp } from "react-icons/io5";
 import { MdMedicalServices } from "react-icons/md";
-import { Link } from 'react-router-dom';
 
 const Doctor = () => {
   const [nameQuery, setNameQuery] = useState('');
