@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import { IoLocationSharp } from "react-icons/io5";
 
-const Doctorcard = ({ imageUrl, name, specialization, location, experience }) => {
+const Doctorcard = ({ name, occupation, location, experience, email, imageUrl }) => {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [bookedAppointment, setBookedAppointment] = useState(null);
-  const [dialogbox, setDialogBox] = useState(true);
+  const [dialogbox, setDialogBox] = useState(false); // Set initial state to false
 
   const handleSlotSelection = (slot) => {
     setSelectedSlot(slot);
   };
 
-  const handleBookAppointment = (e) => {
-    if (selectedSlot) {
-      e.preventDefault();
-      setBookedAppointment(selectedSlot);
-      setDialogBox(false);
-      alert("success");
-      setSelectedSlot(null); // Reset selected slot after booking
-      toast.success("Success Notification !")
-    }
-  };
+    const handleBookAppointment = (e) => {
+      if (selectedSlot) {
+        e.preventDefault(); 
+        setBookedAppointment(selectedSlot);
+        setDialogBox(false);
+        alert("success");
+        setSelectedSlot(null); // Reset selected slot after booking
+        toast.success("Success Notification !")
+      }
+    };
+
 
   return (
     <div className="dark:bg-slate-800 gap-2 flex items-center justify-center">
-      <div className="min-w-[60vh] bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden  group rounded-xl p-10 transition-all duration-500 transform">
+      <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden group rounded-xl p-5 transition-all duration-500 transform">
         <div className="flex items-center gap-4">
           <img
             src={imageUrl}
@@ -32,11 +33,14 @@ const Doctorcard = ({ imageUrl, name, specialization, location, experience }) =>
           />
           <div className="w-fit transition-all transform duration-500">
             <h1 className="text-gray-600 dark:text-gray-200 font-bold">{name}</h1>
-            <p className="text-gray-400">{specialization}</p>
+            <p className="text-gray-400">{occupation}</p>
             <p className='text-gray-400 flex flex-row justify-start items-center'><IoLocationSharp /> {location}</p>
             <p className="text-gray-400">
               Experience <span className="text-xl font-bold">{experience}</span>
             </p>
+            <a className="text-xs text-gray-500 dark:text-gray-200 group-hover:opacity-100 opacity-0 transform transition-all delay-300 duration-500">
+              {email}
+            </a>
           </div>
         </div>
         <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 bg-gray-600 dark:bg-gray-100 right-1 rounded-lg">
@@ -58,16 +62,17 @@ const Doctorcard = ({ imageUrl, name, specialization, location, experience }) =>
             </svg>
           </div>
         </div>
+        
         <button
-          className="mt-2 inline-block px-4 font-bold py-2 rounded-lg text-white transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 to-green-500 hover:from-blue-600 hover:to-green-600"
-          onClick={() => document.getElementById('loginDialog').showModal()}
+          className="inline-block px-4 font-semibold py-1.5 rounded-lg mt-2 text-white transition-all duration-300 ease-in-out bg-gradient-to-r from-blue-400 to-green-500 hover:from-blue-600 hover:to-green-600 "
+          onClick={() => setDialogBox(true)} // Open dialog
         >
           Check Appointment
         </button>
 
-        <dialog
-          id="loginDialog"
-          className={`z-50 absolute inset-0 rounded-lg w-full max-w-lg ${dialogbox ? '' : 'hidden'}`}
+        <dialog 
+          id="loginDialog" 
+          className={`z-50 absolute inset-0 rounded-lg w-full max-w-lg ${dialogbox ? '' : 'hidden'}`} 
           style={{ backdropFilter: 'blur(100px)' }}
         >          <form id="loginForm" className="card flex-shrink-0 w-full">
             <div className="card-body">
@@ -83,7 +88,7 @@ const Doctorcard = ({ imageUrl, name, specialization, location, experience }) =>
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {['01:00PM', '02:00PM', '03:00PM', '04:00PM', '05:00PM', '06:00PM'].map((slot, index) => (
-                    <label key={index} className={`btn ${selectedSlot === slot ? 'bg-blue-600' : ''}`}>
+                    <label key={index} className={`btn ${selectedSlot === slot ? 'bg-blue-400' : ''}`}>
                       <input
                         type="checkbox"
                         className="hidden"
@@ -94,16 +99,15 @@ const Doctorcard = ({ imageUrl, name, specialization, location, experience }) =>
                     </label>
                   ))}
                 </div>
-
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control">
                 <button id="loginBtn" className="inline-block px-4 font-bold py-2 rounded-lg text-white transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 to-green-500 hover:from-blue-600 hover:to-green-600" onClick={(e) => handleBookAppointment(e)}>Book Appointment</button>
               </div>
             </div>
           </form>
         </dialog>
 
-        <p>Booked: {bookedAppointment}</p>
+        <p className='text-md text-gray-600'>Booked: {bookedAppointment}</p>
       </div>
     </div>
   );

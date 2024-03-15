@@ -1,34 +1,11 @@
-import React,{useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Doctorcard from './Doctocard';
 import { db, storage } from '../helper/appwrite';
-import searchData from '../../public/data.js';
-import { IoLocationSharp } from "react-icons/io5";
-import { MdMedicalServices } from "react-icons/md";
 
 const Blogs = () => {
-    const [nameQuery, setNameQuery] = useState('');
-    const [specialtyQuery, setSpecialtyQuery] = useState('');
-    const [districtQuery, setDistrictQuery] = useState('');
-
-    const handleNameChange = (e) => {
-        setNameQuery(e.target.value);
-    };
-
-    const handleSpecialtyChange = (e) => {
-        setSpecialtyQuery(e.target.value);
-    };
-
-    const handleDistrictChange = (e) => {
-        setDistrictQuery(e.target.value);
-    };
-
-    const filteredData = searchData.filter(
-        (item) =>
-            item.name.toLowerCase().includes(nameQuery.toLowerCase()) &&
-            item.occupation.toLowerCase().includes(specialtyQuery.toLowerCase()) &&
-            item.district.toLowerCase().includes(districtQuery.toLowerCase())
-    );
-    const [blogs, setBlogs] = React.useState([]);
+    const [blogs, setBlogs] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTag, setSearchTag] = useState('');
 
     const getBlogs = async () => {
         try {
@@ -38,139 +15,79 @@ const Blogs = () => {
                 const imagePromises = imageIds.map(imageId =>
                     storage.getFileView('65f438b2ad3573a58dce', imageId)
                 );
-
                 const images = await Promise.all(imagePromises);
 
-                const blogs = result.documents.map((doc, index) => ({
+                const blogsData = result.documents.map((doc, index) => ({
                     ...doc,
-                    image: images[index].href // assuming images[index] now contains the resolved file object with an href property
+                    image: images[index].href
                 }));
 
-                setBlogs(blogs);
+                setBlogs(blogsData);
             }
         } catch (err) {
-            alert("Error in getting blogs");
             console.log(err);
         }
-
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         getBlogs();
-    }, [])
+    }, []);
+
+    const filteredBlogs = blogs.filter(blog =>
+        blog.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.specialization.toLowerCase().includes(searchTag.toLowerCase())
+    );
 
     return (
         <>
-            <div className='flex flex-row w-full justify-center items-center my-auto py-6' >
-
-                <div className='flex flex-col w-1/2 gap-6'>
-                    <label
-                        class="mx-auto w-full relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-md focus-within:border-gray-300"
-                        for="search-bar">
-                        <input id="search-bar" value={nameQuery} onChange={handleNameChange} placeholder="Enter Doctor Name..." class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" />
-                        <button
-                            class="w-full md:w-auto px-6 py-3 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
-
-                            <div class="relative">
-
-                                <div
-                                    class="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
-                                    <svg class="opacity-0 animate-spin w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                            stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor"
-                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                        </path>
-                                    </svg>
-                                </div>
-
-                                <div class="flex items-center transition-all opacity-1 valid:"><span
-                                    class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
-                                    Search
-                                </span>
-                                </div>
-
-                            </div>
-
-                        </button>
-                    </label>
-                    <div className='flex flex-row gap-6'>
-                        <label
-                            class="mx-auto  relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-md focus-within:border-gray-300"
-                            for="search-bar">
-                            <input id="search-bar" value={specialtyQuery} onChange={handleSpecialtyChange} placeholder="Speciality..." class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" />
-                            <button
-                                class="w-full md:w-auto px-6 py-3 bg-white text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
-
-                                <div class="relative">
-
-                                    <div
-                                        class="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
-                                        <svg class="opacity-0 animate-spin w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                                stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                            </path>
-                                        </svg>
-                                    </div>
-
-                                    <div class="flex items-center transition-all opacity-1 valid:"><span
-                                        class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
-                                        <MdMedicalServices className='text-gray-700 text-2xl' />
-                                    </span>
-                                    </div>
-
-                                </div>
-
-                            </button>
-                        </label>
-                        <label
-                            class="mx-auto   relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-md focus-within:border-gray-300"
-                            for="search-bar">
-                            <input id="search-bar" value={districtQuery} onChange={handleDistrictChange} placeholder="Location..." class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" />
-                            <button
-                                class="w-full md:w-auto px-6 py-3 bg-white text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
-
-                                <div class="relative">
-
-                                    <div
-                                        class="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
-                                        <svg class="opacity-0 animate-spin w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                                stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                            </path>
-                                        </svg>
-                                    </div>
-
-                                    <div class="flex items-center transition-all opacity-1 valid:"><span
-                                        class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
-                                        <IoLocationSharp className='text-gray-700 text-2xl' />
-                                    </span>
-                                    </div>
-
-                                </div>
-
-                            </button>
-                        </label>
+        <div className='flex flex-col w-full justify-center items-center  bg-gradient-to-tr from-sky-300 via-sky-400 to-blue-500 bg-white rounded-lg p-10 mx-3 my-4 shadow-md'>
+            <h1 className='text-5xl flex flex-col gap-2 mb-8 text-white' >
+                <span>Find the <span className='ms-1'>best</span></span>
+                <span className='ms-20'>Med <span className='ms-3'>around you.</span></span>
+            </h1>
+            <div className='flex flex-row w-1/2 justify-center items-center gap-0'>
+                <form className="flex items-center max-w-sm w-full me-2">
+                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                    <div className="relative w-full">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                            </svg>
+                        </div>
+                        <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} id="simple-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 placeholder-gray-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Doctor Name..." required />
                     </div>
-                </div>
+                </form>
+                <form className="flex items-center max-w-sm w-full">
+                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                    <div className="relative w-full">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                            </svg>
+                        </div>
+                        <input type="text" value={searchTag} onChange={(e) => setSearchTag(e.target.value)} id="simple-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search experience" required />
+                    </div>
+                    <button type="submit" className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-600 rounded-lg border border-blue-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span className="sr-only">Search</span>
+                    </button>
+                </form>
+            </div>
             </div>
             <div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    {blogs.length && blogs.map(blog => (<Doctorcard
-                        imageUrl={blog?.image}
-                        key={blog.$id}
-                        name={blog?.name}
-                        specialization={blog?.specialization}
-                        location={blog?.location}
-                        experience={blog?.experience}
-                    />))}
+                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 '>
+                    {filteredBlogs.map(blog => (
+                        <Doctorcard
+                            imageUrl={blog.image}
+                            key={blog.$id}
+                            name={blog.name}
+                            specialization={blog.specialization}
+                            location={blog.location}
+                            experience={blog.experience}
+                        />
+                    ))}
                 </div>
             </div>
         </>
