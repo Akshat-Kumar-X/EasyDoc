@@ -15,7 +15,7 @@ const Navbar = () => {
 
       <div className="hidden sm:flex gap-6">
         <ul className="flex gap-6">
-          {isSignedIn ? <li>
+          {isSignedIn ? <li className='flex items-center hover:scale-110 duration-300'>
             <Link to="/add-blog">Add Blog</Link>
           </li> : null}
         <li className="flex items-center hover:scale-110 duration-300">

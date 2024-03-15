@@ -9,11 +9,13 @@ import Blogs from './pages/Blogs'
 import AddBlog from './pages/AddBlog'
 import AuthProvider from './contexts/auth-provider'
 import Doctor from './pages/Doctor'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Toaster />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
