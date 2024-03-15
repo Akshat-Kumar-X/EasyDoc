@@ -131,9 +131,9 @@ const Doctor = () => {
       </div>
     </div>
 
-    <div>
+    {/* <div>
       <SearchResults data={filteredData} />
-    </div>
+    </div> */}
     </>
   );
 };

@@ -18,12 +18,15 @@ const Navbar = () => {
           {isSignedIn ? <li className='flex items-center hover:scale-110 duration-300'>
             <Link to="/add-blog">Add Blog</Link>
           </li> : null}
+          {isSignedIn ? <li className='flex items-center hover:scale-110 duration-300'>
+            <Link to="/doctordetail">Add Doctor Detail</Link>
+          </li> : null}
         <li className="flex items-center hover:scale-110 duration-300">
           <Link to="/diagnosis"> Diagnosis </Link>
         </li>
 
         <li className="flex items-center hover:scale-110 duration-300">
-          <Link to="/doctor"> Doctors </Link>
+          <Link to="/doctorpage"> Doctors </Link>
         </li>
 
         <li className="flex items-center hover:scale-110 duration-300">

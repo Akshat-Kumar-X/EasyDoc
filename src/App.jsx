@@ -2,26 +2,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Diagnosis from './pages/Diagnosis'
-import Appointment from './pages/Appointment'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Blogs from './pages/Blogs'
 import AddBlog from './pages/AddBlog'
 import AuthProvider from './contexts/auth-provider'
 import Doctor from './pages/Doctor'
-import { Toaster } from 'react-hot-toast'
+import Doctordetail from './pages/Doctordetail'
+import Doctorcard from './pages/Doctocard'
+import Doctorpage from './pages/Doctorpage'
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Toaster />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/add-blog' element={<AddBlog />} />
+          <Route path='/doctorcard' element={<Doctorcard />} />
+          <Route path='/doctordetail' element={<Doctordetail/>} />
+          <Route path='/doctorpage' element={<Doctorpage/>} />
           <Route path='/diagnosis' element={<Diagnosis />} />
-          <Route path='/appointment' element={<Appointment />} />
           <Route path='/blog' element={<Blogs />} />
           <Route path='/doctor'       element={ <Doctor/> } />
           <Route path='/login' element={<Login />} />
