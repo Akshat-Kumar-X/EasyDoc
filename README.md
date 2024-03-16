@@ -1,4 +1,5 @@
 # Live Link : https://ai-med.netlify.app
+Figma Link : https://www.figma.com/file/1bD3tNpzbMkXh04Fid5Ddl/Untitled?type=design&node-id=0%3A1&mode=design&t=VgmkzUmeBAUvdLb3-1
 # Health Companion App
 
 This Health Companion App is a comprehensive tool designed to empower users in managing their health and well-being effectively. With a range of features, including health assessment, access to health articles, medicine analysis, disease prediction, and personalized diet recommendations, this app aims to provide users with valuable insights and support for maintaining a healthy lifestyle.
